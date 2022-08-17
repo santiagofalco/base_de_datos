@@ -1,0 +1,12 @@
+[
+	{
+		"email": "correo@prueba",
+		"message": "Hola desde front",
+		"hour": "17/8/2022 12:07:17"
+	},
+	{
+		"email": "prueba@correo2",
+		"message": "Prueba desde pestaña incognito",
+		"hour": "17/8/2022 12:07:58"
+	}
+]

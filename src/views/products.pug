@@ -1,0 +1,65 @@
+html 
+    head
+        title='Products'
+        style(type="text/css").
+            .form {
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+            }
+            table.tabla {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                border: '1px';
+            }
+            img.imagen {
+                max-width: 20%;
+            }
+            .bloqueChat {
+                display: flex;
+                flex-direction: column;
+            }
+            .input {
+                width: 20%
+            }
+        body
+            div
+                h2='Ingrese Producto'
+                form( class='form' id='productForm')
+                    label(name="producto") Producto: 
+                    input(name="name") 
+                    label(name="precio") Precio:        
+                    input(name="price") 
+                    label(name="thumbnail")  Url Imagen: 
+                    input(id="thumbnail" name="thumbnail") 
+                    button(type="submit") Enviar
+                h2=message
+                if productos.length == 0
+                    h4(id='noProductMessage')='No hay productos para mostrar' 
+                table(class='tabla' id='tabla')
+                    thead     
+                        tr
+                            th Nombre Producto
+                            th Precio Producto
+                            th Imagen Producto
+                    tbody 
+                        if productos.length > 0
+
+                            each producto in productos
+                                tr
+                                    td=producto.name
+                                    td=producto.price
+                                    td
+                                        img(class='imagen' src=producto.thumbnail)
+            
+            div(class='bloqueChat')
+                h2='Centro de mensajes'
+                <input class='input' placeholder='Intruduzca su Correo' id="mailInput"/>  
+                <br>    
+                <input class='input' placeholder='Chat' id="chatBox" disabled/>
+                <br>
+                <span class id='mensajes'></span>
+        script(src='/socket.io/socket.io.js')
+        script(type='text/javascript' src='../public/js/chat.js')
+        script(type='text/javascript' src='../public/js/newProduct.js')
